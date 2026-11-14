@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+# SPDX-FileCopyrightText: 2026 Isaza Arenas
+# Iraca-3 — verificación adversarial y diferencial de SLH-DSA (FIPS 205). Xiliux.
+[package]
+name = "iraca3"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Isaza Arenas"]
+description = "Verificación adversarial (abuso/malleability) y diferencial de SLH-DSA-SHA2-256s (FIPS 205)."
+publish = false
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[dependencies]
+fips205 = { version = "0.4.1", features = ["slh_dsa_sha2_256s"] }
+slh-dsa = "0.1.0"
+# El conjunto que consume nuestro stack: SLH-DSA-SHA2-256s (quipu, feature `slh`,
+# firma triple del perito en medico). El diferencial cruza las DOS implementaciones
+# Rust independientes y conformes de FIPS 205, en ESE parámetro.
+# fips205 (integritychain): la que quipu usa de verdad.
+# slh-dsa (RustCrypto): la segunda implementación, código distinto.

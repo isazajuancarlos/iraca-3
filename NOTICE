@@ -1,0 +1,11 @@
+Iraca-3 — verificación adversarial y diferencial de SLH-DSA-SHA2-256s (FIPS 205).
+Copyright 2026 Isaza Arenas.
+
+Titularidad: Isaza Arenas. Xiliux no es persona jurídica.
+Licenciado bajo MIT OR Apache-2.0 (ver LICENSE-MIT y LICENSE-APACHE).
+
+Este arnés estudia, por su API pública, dos implementaciones Rust independientes y
+conformes de SLH-DSA (FIPS 205): el crate `slh-dsa` de RustCrypto (Apache-2.0 OR MIT)
+y el crate `fips205` de integritychain (MIT OR Apache-2.0), este último el que
+consume quipu. No incorpora ni deriva su código; los consume como dependencias para
+someterlos a pruebas de abuso y diferencial. No depende de quipu.
